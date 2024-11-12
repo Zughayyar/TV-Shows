@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read (All)</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/show-id.css' %}">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="/shows">Go Back</a>
+        </nav>
+        <section>
+            <h1> TV Show {{ show.id }}</h1>
+            <br>
+            <p>Title: {{show.title}}</p>
+            <br>
+            <p>Network: {{show.network}}</p>
+            <br>
+            <p>Description: {{show.desc}}</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <p>Last Updated: {{show.released_date}}</p>
+            <a href="/shows/{{ show.id }}/edit">Edit</a> | <a href="/shows/{{ show.id }}/destroy">Delete</a>
+        </section>
+    </div>
+
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

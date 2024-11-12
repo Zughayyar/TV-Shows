@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read (All)</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/shows-new.css' %}">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="/shows">Go Back</a>
+        </nav>
+        <h1>Add a New Show</h1>
+        <form action="/shows/create" method="post">
+            {% csrf_token %}
+            <label for="">Title</label>
+            <input type="text" id="title" name="title">
+            <br>
+            <div>
+                <label for="">Network</label>
+                <input type="text" id="network" name="network">
+                <label for="">Release Date</label>
+                <input type="date" name="released_date">
+            </div>
+            <br>
+            <label for="">Discription:</label>
+            <textarea name="desc" id="desc" ></textarea>
+            <br>
+            <div class="form-btn">
+                <button type="submit">Create</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

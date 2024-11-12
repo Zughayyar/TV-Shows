@@ -1,0 +1,59 @@
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.container {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 4vh 0vh 0vh 0vh;
+}
+
+.shows-title {
+    width: 80vh;
+    height: 10vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.shows-table {
+    width: 80vh;
+    height: auto;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 0.25vh solid black;
+    height: 3vh;
+    text-align: center;
+}
+
+th, td {
+    width: 20vh;
+}
+
+.id-col {
+    width: 3vh;
+}
+
+.first-row {
+    background-color: lightgray;
+}
+
+.back-btn {
+    width: 80vh;
+    height: 10vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
