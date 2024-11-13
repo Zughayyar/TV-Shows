@@ -83,3 +83,9 @@ button {
 button:hover {
     cursor: pointer;
 }
+
+.messages {
+    width: 45vh;
+    height: auto;
+    color: red;
+}

@@ -1,5 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 from . import models
+from django.contrib import messages
+from datetime import datetime
 
 
 def shows(request):
@@ -25,8 +27,14 @@ def edit_show(request, id):
 
 def new_show_create(request):
     if request.method == "POST":
-        models.create_new_show(request.POST)
-        return redirect('/shows')
+        errors = models.Show.objects.basic_validotor(request.POST)
+        if len(errors) > 0:
+            for key, value in errors.items():
+                messages.error(request, value)
+            return redirect(new_show) 
+        else:
+            models.create_new_show(request.POST)
+            return redirect('/shows')
     else:
         HttpResponse("Something went wrong!")
 
@@ -36,7 +44,13 @@ def delete_show(request, id):
 
 def update_show(request, id):
     if request.method == "POST":
-        models.update_show(request.POST ,id)
-        return redirect('/shows/' + str(id))
+        errors = models.Show.objects.basic_validotor(request.POST)
+        if len(errors) > 0:
+            for key, value in errors.items():
+                messages.error(request, value)
+            return redirect('/shows/' + str(id) + '/edit')
+        else:
+            models.update_show(request.POST ,id)
+            return redirect('/shows/' + str(id))
     else:
         HttpResponse("Something went wrong!")
